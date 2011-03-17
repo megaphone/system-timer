@@ -1,10 +1,3 @@
-begin
-  require 'rake'
-rescue LoadError => e
-  require 'rubygems'
-  require 'rake'
-end
-
 SYSTEM_TIMER_VERSION = "1.2.1"
 SYSTEM_TIMER_GEM_NAME = "SystemTimer"
 
@@ -15,15 +8,15 @@ Gem::Specification.new do |s|
   s.authors = ["Philippe Hanrigou", "David Vollbracht"]
   if ENV['PACKAGE_FOR_WIN32'] || PLATFORM['win32'] 
     s.platform = Gem::Platform.new "mswin32"
-    s.files = FileList['lib/system_timer_stub.rb']
+    s.files = Dir['lib/system_timer_stub.rb']
     s.autorequire = "system_timer_stub"
   else
     s.platform = Gem::Platform::RUBY
     s.files = [ "COPYING", "LICENSE", "ChangeLog"] + 
-                FileList['ext/**/*.c'] + 
-                FileList['ext/**/*.rb'] + 
-                FileList['lib/**/*.rb'] + 
-                FileList['test/**/*.rb']
+                Dir['ext/**/*.c'] + 
+                Dir['ext/**/*.rb'] + 
+                Dir['lib/**/*.rb'] + 
+                Dir['test/**/*.rb']
     s.autorequire = "system_timer"
     s.extensions = ["ext/system_timer/extconf.rb"]
   end  
