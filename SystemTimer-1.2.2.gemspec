@@ -1,4 +1,4 @@
-SYSTEM_TIMER_VERSION = "1.2.1"
+SYSTEM_TIMER_VERSION = "1.2.2"
 SYSTEM_TIMER_GEM_NAME = "SystemTimer"
 
 Gem::Specification.new do |s|
